@@ -29,7 +29,7 @@ class ServiceController extends Controller
 
         return redirect()->back()->with('status', 'Service created successfully');
     }
-    
+
     public function edit(Request $request, $id)
     {
         $service = Service::find($id);
@@ -56,6 +56,6 @@ class ServiceController extends Controller
     {
         $service = Service::find($id);
         $service->delete();
-        return redirect()->route('services.index')->with('status', 'Service deleted successfully');
+        return redirect()->route('admin.services.index')->with('status', 'Service deleted successfully');
     }
 }
