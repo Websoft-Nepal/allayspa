@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\PrivacyController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\TermsConditionController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\ServiceController;
-
+use App\Models\Gallery;
 
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
 
@@ -35,4 +37,13 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
         Route::put('update/{id}',[TermsConditionController::class, 'update'])->name('update');
     });
 
+    // Gallery
+    Route::prefix('gallery')->name('gallery.')->group(function (){
+        Route::get('/',[GalleryController::class,'index'])->name('index');
+    });
+
+    // Profile
+    Route::prefix('profile')->name('profile.')->group(function (){
+        Route::get('/',[ProfileController::class,'index'])->name('index');
+    });
 });
