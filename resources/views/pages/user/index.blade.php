@@ -22,8 +22,8 @@
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="" value="{{ auth()->user()->name }}" name="name"
-                            placeholder="Name">
+                        <input type="text" class="form-control" id="" value="{{ auth()->user()->name }}"
+                            name="name" placeholder="Name">
                         @error('name')
                             <div class="text-danger">
                                 {{ $message }}
@@ -39,7 +39,8 @@
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="" value="{{ auth()->user()->email }}" name="name">
+                        <input type="text" class="form-control" id="" value="{{ auth()->user()->email }}"
+                            name="name">
                         @error('email')
                             <div class="text-danger">
                                 {{ $message }}
@@ -53,7 +54,11 @@
 
 
             <div class="my-3">
-                <button class="btn btn-primary" type="submit">Update</button>
+                <button class="btn btn-primary display-inline-block" type="submit">Update</button>
+                <a name="" id="" class="btn btn-primary" href="#" role="button">Button</a>
+                <a name="" id="" class="btn btn-primary" href="#" role="button">Button</a>
+
+                <button class="btn btn-primary mx-3" type="submit">Change password</button>
             </div>
 
         </div>
