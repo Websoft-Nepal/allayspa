@@ -40,6 +40,9 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     // Gallery
     Route::prefix('gallery')->name('gallery.')->group(function (){
         Route::get('/',[GalleryController::class,'index'])->name('index');
+        Route::post('store',[GalleryController::class,'store'])->name('store');
+        Route::put('update/{id}',[GalleryController::class,'update'])->name('update');
+        Route::delete('delete/{id}',[GalleryController::class,'destroy'])->name('destroy');
     });
 
     // Profile

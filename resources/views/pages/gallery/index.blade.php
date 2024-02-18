@@ -9,7 +9,55 @@
     </nav>
 
     <div class="container">
-        <h4 class="mb-3">Gallery</h4>
+        <div class="row justify-content-between">
+            <div class="col-md-8">
+                <h4 class="mb-3">Gallery</h4>
+            </div>
+            {{-- <div class="col-md-2">
+                <a name="" id="" class="btn btn-primary btn-sm" href="{{ route('admin.gallery.store') }}"
+                    role="button">Add image</a>
+            </div> --}}
+            <div class="col-md-2">
+                {{-- Modal for update  --}}
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addmodal">
+                    Add Image
+                </button>
+
+                <!-- The modal -->
+                <div class="modal fade" id="addmodal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <h4 class="modal-title" id="modalLabel">Modal Title</h4>
+                            <form method="POST" action="{{ route('admin.gallery.store') }}" enctype="multipart/form-data">
+                                @csrf
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label for="image" class="col-form-label">Image:</label>
+                                        <input type="file" name="image" id="image">
+                                        @error('image')
+                                            <div class="text-danger">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">Add</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <div class="container">
@@ -22,100 +70,86 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>
-                        <a name="" id="" class="btn btn-sm btn-primary" href="#"
-                            role="button">Edit</a>
-                        <form action="" onsubmit="return(confirm('Are you sure?'))" class="d-inline-block"
-                            method="post">
-                            @method('DELETE')
-                            @csrf
-                            <button class="btn btn-sm btn-danger" type="submit">Delete</button>
-                        </form>
+                @foreach ($images as $image)
+                    <tr>
+                        <th scope="row">{{ $loop->iteration }}</th>
+                        <td>
+                            <a href="{{ asset('uploads/gallery/' . $image->image) }}" target="_blank"
+                                rel="noopener noreferrer">
+                                <img src="{{ asset('uploads/gallery/' . $image->image) }}" alt="image"
+                                    style="width: 60px; height:auto;" srcset="">
+                            </a>
+                        </td>
+                        <td>
+                            {{-- Modal for update  --}}
+                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                                data-target="#editModal{{ $image->id }}">
+                                Edit
+                            </button>
 
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry the Bird</td>
-                    <td>@twitter</td>
-                </tr>
+                            <!-- The modal -->
+                            <div class="modal fade" id="editModal{{ $image->id }}" tabindex="-1" role="dialog"
+                                aria-labelledby="modalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <h4 class="modal-title" id="modalLabel">Modal Title</h4>
+                                        <form method="POST" action="#" enctype="multipart/form-data">
+                                            <div class="modal-body">
+                                                @csrf
+                                                @method('PUT')
+                                                <div class="mb-3">
+                                                    <label for="recipient-name" class="col-form-label">Current
+                                                        Image:</label>
+                                                    <div class="form-control" style="height: 80px; overflow:auto">
+                                                        <a href="{{ asset('uploads/gallery/' . $image->image) }}"
+                                                            target="_blank" rel="noopener noreferrer">
+                                                            <img src="{{ asset('uploads/gallery/' . $image->image) }}"
+                                                                alt="image" style="width: 60px; height:auto;"
+                                                                srcset="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="image" class="col-form-label">Update Image:</label>
+                                                    <input type="file" name="image" id="image">
+                                                    @error('image')
+                                                        <div class="text-danger">
+                                                            {{ $message }}
+                                                        </div>
+                                                    @enderror
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-primary"
+                                                    data-dismiss="modal">Update</button>
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <form action="{{ route('admin.gallery.destroy', $image->id) }}"
+                                onsubmit="return(confirm('Are you sure?'))" class="d-inline-block" method="post">
+                                @method('DELETE')
+                                @csrf
+                                <button class="btn btn-sm btn-danger" type="submit">Delete</button>
+                            </form>
+
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
+            {{ $images->links() }}
         </table>
 
-        {{-- modal testing --}}
-        <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal"
-            data-bs-target="#exampleModal">Edit</button>
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit Gallery</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="POST" action="" enctype="multipart/form-data">
-                            @csrf
-                            @method('PUT')
-                            <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Current Image:</label>
-                                <input type="text" class="form-control" id="recipient-name">
-                                <div class="form-control" style="height: 40px;"></div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="image" class="col-form-label">Update Image:</label>
-                                <input type="file" name="image" id="image">
-                                @error('image')
-                                    <div class="text-danger">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Update</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
     {{-- this is for notification --}}
     @if (session('status'))
