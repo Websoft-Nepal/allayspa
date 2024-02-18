@@ -9,7 +9,9 @@ use Illuminate\Http\Request;
 class PrivacyController extends Controller
 {
     public function index(){
-        return view('pages.privacy-policy.index');
+        $privacy = Privacy::first();
+        $privacy = optional($privacy);
+        return view('pages.privacy-policy.index',compact('privacy'));
     }
     public function edit(string $id){
         $privacy = Privacy::findOrFail($id);

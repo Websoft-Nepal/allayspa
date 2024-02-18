@@ -9,11 +9,13 @@ use Illuminate\Http\Request;
 class TermsConditionController extends Controller
 {
     public function index(){
-        return view('pages.terms-condition.index');
+        $term = TermsCondition::first();
+        $term = optional($term);
+        return view('pages.terms-condition.index',compact('term'));
     }
     public function edit(string $id){
-        $terms = TermsCondition::findOrFail($id);
-        return view('pages.terms-condition.edit',compact('terms'));
+        $term = TermsCondition::findOrFail($id);
+        return view('pages.terms-condition.edit',compact('term'));
     }
     public function update(Request $request,string $id){
         $request->validate([

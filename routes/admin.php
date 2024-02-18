@@ -48,5 +48,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     // Profile
     Route::prefix('profile')->name('profile.')->group(function (){
         Route::get('/',[ProfileController::class,'index'])->name('index');
+        Route::put('update/{id}',[ProfileController::class,'update'])->name('update');
+        Route::get('update-password/{id}',[ProfileController::class,'editPass'])->name('editpass');
+        Route::put('update-password/{id}',[ProfileController::class,'updatePass'])->name('updatepass');
     });
 });

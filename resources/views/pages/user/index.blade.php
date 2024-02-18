@@ -12,7 +12,7 @@
         <h4 class="mb-3">Profile</h4>
     </div>
 
-    <form action="#" method="POST">
+    <form action="{{route("admin.profile.update",auth()->user()->id)}}" method="POST">
         @csrf
         @method('PUT')
         <div class="container">
@@ -40,7 +40,7 @@
                 <div class="card-body">
                     <div class="mb-3">
                         <input type="text" class="form-control" id="" value="{{ auth()->user()->email }}"
-                            name="name">
+                            name="email">
                         @error('email')
                             <div class="text-danger">
                                 {{ $message }}
@@ -55,10 +55,7 @@
 
             <div class="my-3">
                 <button class="btn btn-primary display-inline-block" type="submit">Update</button>
-                <a name="" id="" class="btn btn-primary" href="#" role="button">Button</a>
-                <a name="" id="" class="btn btn-primary" href="#" role="button">Button</a>
-
-                <button class="btn btn-primary mx-3" type="submit">Change password</button>
+                <a name="" id="" class="btn btn-primary mx-3" href="{{route("admin.profile.editpass",auth()->user()->id)}}" role="button">Change password</a>
             </div>
 
         </div>

@@ -17,7 +17,7 @@ class ProfileController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255|string|alpha',
-            'email' => 'required|email|unique:users,email,except,$id'
+            'email' => "required|email|unique:users,email,".$id
         ]);
         $user = User::findOrFail($id);
         $user->name = $request->name;
@@ -25,12 +25,16 @@ class ProfileController extends Controller
         $user->save();
         return redirect()->route('admin.profile.index')->with('status', 'Profile updated successfully');
     }
+    public function editPass(int $id){
+        $user = User::findOrFail($id);
+        return view('pages.user.passwordUpdate',compact('user'));
+    }
 
     public function updatePass(Request $request, int $id)
     {
         $request->validate([
             'password' => 'required',
-            'new_password' => 'required|min:8',
+            'new_password' => 'required|min:2',
             'confirm_password' => 'required|same:new_password',
         ]);
 
@@ -39,7 +43,7 @@ class ProfileController extends Controller
 
         // Verify that the provided password matches the user's current password
         if (!Hash::check($request->password, $user->password)) {
-            return redirect()->back()->with('error', 'Current password is incorrect.');
+            return redirect()->back()->with('status', 'Current password is incorrect.');
         }
 
         // Update the user's password with the new password

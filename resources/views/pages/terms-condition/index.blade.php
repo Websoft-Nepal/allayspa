@@ -12,8 +12,9 @@
         <h4 class="mb-3">Terms and Condition</h4>
     </div>
 
-    <form action="#" method="POST">
+    <form action="{{route('admin.terms.update',$term->id)}}" method="POST">
         @csrf
+        @method('PUT')
         <div class="container">
             <div class="card mb-4">
                 <div class="card-header">
@@ -21,9 +22,8 @@
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="" value="{{ old('name') }}" name="name"
-                            placeholder="Name">
-                        @error('name')
+                        <input type="text" class="form-control" id="" value="{{ $term->title }}" name="title">
+                        @error('title')
                             <div class="text-danger">
                                 {{ $message }}
                             </div>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
-                        <textarea class="form-control" id="description" rows="5" name="description" placeholder="Description">{{ old('description') }}</textarea>
+                        <textarea class="form-control" id="description" rows="5" name="description">{{ $term->description }}</textarea>
                         @error('description')
                             <div class="text-danger">
                                 {{ $message }}
