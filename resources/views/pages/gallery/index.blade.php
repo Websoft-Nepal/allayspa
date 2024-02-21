@@ -33,7 +33,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <h4 class="modal-title" id="modalLabel">Modal Title</h4>
+                            <h4 class="modal-title ml-3" id="modalLabel">Modal Title</h4>
                             <form method="POST" action="{{ route('admin.gallery.store') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="modal-body">
@@ -97,7 +97,7 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-                                        <h4 class="modal-title" id="modalLabel">Modal Title</h4>
+                                        <h4 class="modal-title ml-3" id="modalLabel">Modal Title</h4>
                                         <form method="POST" action="#" enctype="multipart/form-data">
                                             <div class="modal-body">
                                                 @csrf
@@ -145,8 +145,8 @@
                     </tr>
                 @endforeach
             </tbody>
-            {{ $images->links() }}
         </table>
+        {{ $images->links() }}
 
     </div>
 

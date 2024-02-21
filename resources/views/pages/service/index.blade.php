@@ -66,6 +66,7 @@
     {{-- for list --}}
     <div class="container mt-5">
         <h4 class="mb-3">Services</h4>
+        <img src="{{ asset('uploads/services/bill.png') }}" alt="">
     </div>
     <div class="container">
         <div class="row">
