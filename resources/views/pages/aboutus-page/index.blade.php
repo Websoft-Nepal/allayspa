@@ -4,27 +4,26 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Profile</li>
+            <li class="breadcrumb-item active" aria-current="page">About Us</li>
         </ol>
     </nav>
 
     <div class="container">
-        <h4 class="mb-3">Profile</h4>
+        <h4 class="mb-3">About Us</h4>
     </div>
 
-    <form action="{{route("admin.profile.update",auth()->user()->id)}}" method="POST">
+    <form action="{{route('admin.aboutus.update',$aboutus->id)}}" method="POST">
         @csrf
         @method('PUT')
         <div class="container">
             <div class="card mb-4">
                 <div class="card-header">
-                    {{ _('Name') }}
+                    {{ __('Title') }}
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="" value="{{ auth()->user()->name }}"
-                            name="name" placeholder="Name">
-                        @error('name')
+                        <input type="text" class="form-control" id="" value="{{ $aboutus->title }}" name="title">
+                        @error('title')
                             <div class="text-danger">
                                 {{ $message }}
                             </div>
@@ -35,13 +34,12 @@
 
             <div class="card mb-4">
                 <div class="card-header">
-                    {{ _('Email') }}
+                    {{ __('Description') }}
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
-                        <input type="text" class="form-control" id="" value="{{ auth()->user()->email }}"
-                            name="email">
-                        @error('email')
+                        <textarea class="form-control" id="description" rows="5" name="description">{{ $aboutus->description }}</textarea>
+                        @error('description')
                             <div class="text-danger">
                                 {{ $message }}
                             </div>
@@ -51,11 +49,8 @@
             </div>
 
 
-
-
             <div class="my-3">
-                <button class="btn btn-primary display-inline-block" type="submit">Update</button>
-                <a name="" id="" class="btn btn-primary mx-3" href="{{route("admin.profile.editpass",auth()->user()->id)}}" role="button">Change password</a>
+                <button class="btn btn-primary" type="submit">Update</button>
             </div>
 
         </div>

@@ -74,13 +74,13 @@
     </a>
     <ul class="nav nav-treeview">
         <li class="nav-item">
-            <a href="" class="nav-link">
+            <a href="{{route('admin.social.index')}}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Social Media</p>
             </a>
         </li>
         <li class="nav-item">
-            <a href="" class="nav-link ">
+            <a href="{{route('admin.contact.index')}}" class="nav-link ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Contact Details</p>
             </a>
@@ -92,7 +92,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="" class="nav-link ">
+            <a href="{{route('admin.aboutus.index')}}" class="nav-link ">
                 <i class="far fa-circle nav-icon"></i>
                 <p>About Us</p>
             </a>
