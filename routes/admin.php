@@ -79,6 +79,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::prefix('blog')->name('blog.')->group(function (){
         Route::get('/',[BlogController::class,'index'])->name('index');
         Route::get('create',[BlogController::class,'create'])->name('create');
+        Route::get('view/{id}',[BlogController::class,'view'])->name('view');
         Route::post('store',[BlogController::class,'store'])->name('store');
         Route::get('edit/{id}',[BlogController::class,'edit'])->name('edit');
         Route::put('update/{id}',[BlogController::class,'update'])->name('update');
