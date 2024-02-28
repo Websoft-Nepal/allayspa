@@ -42,9 +42,9 @@
                             ? '<span class="badge rounded-pill bg-success">Success</span>'
                             : '<span class="badge rounded-pill bg-warning">Success</span>' !!}</td>
                         <td>
-                            <a href="{{ asset('uploads/gallery/' . $blog->image) }}" target="_blank"
+                            <a href="{{ asset('uploads/blog/' . $blog->image) }}" target="_blank"
                                 rel="noopener noreferrer">
-                                <img src="{{ asset('uploads/gallery/' . $blog->image) }}" alt="image"
+                                <img src="{{ asset('uploads/blog/' . $blog->image) }}" alt="image"
                                     style="width: 60px; height:auto;" srcset="">
                             </a>
                         </td>
@@ -54,7 +54,7 @@
                             <a name="" id="" class="btn btn-sm btn-primary" href="{{route('admin.blog.edit',$blog->id)}}"
                                 role="button">Edit</a>
 
-                            <form action="{{ route('admin.gallery.destroy', $blog->id) }}"
+                            <form action="{{ route('admin.blog.destroy', $blog->id) }}"
                                 onsubmit="return(confirm('Are you sure?'))" class="d-inline-block" method="post">
                                 @method('DELETE')
                                 @csrf

@@ -12,7 +12,7 @@
         <h4 class="mb-3">Blog</h4>
     </div>
 
-    <form action="{{ route('admin.blog.store') }}" method="POST">
+    <form action="{{ route('admin.blog.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="container">
             <div class="card mb-4">
@@ -42,8 +42,9 @@
                             <input class="form-check-input me-4" type="checkbox" role="switch" name="status"
                                 id="flexSwitchCheckChecked" aria-describedby="status" checked>
                             <label class="form-check-label" for="flexSwitchCheckChecked">Status</label>
-                            <div id="status" class="form-text"><i>* This option decide either this blog will be visible or
-                                not.</i></div>
+                            <div id="status" class="form-text"><i>* This option decide either this blog will be visible
+                                    or
+                                    not.</i></div>
                         </div>
                         @error('status')
                             <div class="text-danger">

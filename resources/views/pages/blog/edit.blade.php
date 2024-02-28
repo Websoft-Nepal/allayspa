@@ -12,7 +12,7 @@
         <h4 class="mb-3">Services</h4>
     </div>
 
-    <form action="{{ route('admin.blog.update',$blog->id) }}" method="POST">
+    <form action="{{ route('admin.blog.update',$blog->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="container">
@@ -84,6 +84,13 @@
                                 {{ $message }}
                             </div>
                         @enderror
+                    </div>
+                    <div class="mb-3">
+                        <div class="m-2">Old Image</div>
+                        <a href="{{asset('uploads/blog')."/".$blog->image}}"style="height:auto;" class="form-control">
+                            <img src="{{asset('uploads/blog')."/".$blog->image}}" style="width:100px; height:auto;" alt="" srcset="">
+                        </a>
+
                     </div>
                 </div>
             </div>

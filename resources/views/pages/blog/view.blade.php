@@ -57,8 +57,8 @@
             </div>
             <div class="card-body">
                 <div class="mb-3">
-                    <a href="">
-                        <img src="" alt="" srcset="">
+                    <a href="{{asset('uploads/blog')."/".$blog->image}}"style="height:auto;" class="form-control">
+                        <img src="{{asset('uploads/blog')."/".$blog->image}}" style="width:100px; height:auto;" alt="" srcset="">
                     </a>
 
                 </div>

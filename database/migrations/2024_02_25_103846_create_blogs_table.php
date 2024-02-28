@@ -16,10 +16,9 @@ return new class extends Migration
             $table->string('slug');
             $table->enum('status',['active','inactive'])->default('active');
             $table->string('title');
-            $table->unsignedBigInteger('image_id')->nullable();
+            $table->string('image')->nullable();
             $table->longText('description')->nullable();
             $table->timestamps();
-            $table->foreign('image_id')->references('id')->on('galleries')->onDelete('cascade');
         });
     }
 

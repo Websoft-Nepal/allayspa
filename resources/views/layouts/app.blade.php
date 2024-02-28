@@ -1,5 +1,6 @@
 <x-laravel-ui-adminlte::adminlte-layout>
     <link rel="stylesheet" href="{{ asset('css/notyf.min.css') }}">
+    <link rel="shortcut icon" href="https://assets.infyom.com/logo/blue_logo_150x150.png" type="image/x-icon">
     <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>
 
     <body class="hold-transition sidebar-mini layout-fixed">

@@ -6,7 +6,7 @@
     </a>
 </li>
 
-<li class="nav-item menu-close">
+{{-- <li class="nav-item menu-close">
     <a class="nav-link" style="cursor: pointer;">
         <i class="nav-icon fas fa-tachometer-alt"></i>
         <p>
@@ -28,22 +28,25 @@
             </a>
         </li>
     </ul>
-</li>
+</li> --}}
+
 <li class="nav-item">
     <a href="{{ route('admin.services.index') }}" class="nav-link ">
-        <i class="nav-icon fas fa-home"></i>
+        <i class="nav-icon fas fa-tools"></i>
         <p>Services</p>
     </a>
 </li>
-<li class="nav-item">
+
+{{-- <li class="nav-item">
     <a href="" class="nav-link ">
         <i class="nav-icon fas fa-home"></i>
         <p>Clinic</p>
     </a>
-</li>
+</li> --}}
+
 <li class="nav-item menu-close">
     <a class="nav-link " style="cursor: pointer;">
-        <i class="nav-icon fas fa-tachometer-alt"></i>
+        <i class="nav-icon fas fa-blog"></i>
         <p>
             Blog
             <i class="right fas fa-angle-left"></i>
@@ -66,7 +69,7 @@
 </li>
 <li class="nav-item menu-close">
     <a class="nav-link " style="cursor: pointer;">
-        <i class="nav-icon fas fa-tachometer-alt"></i>
+        <i class="nav-icon fas fa-users"></i>
         <p>
             About Us
             <i class="right fas fa-angle-left"></i>
@@ -103,7 +106,7 @@
 {{-- Privacy Policy --}}
 <li class="nav-item">
     <a href="{{route('admin.privacy.index')}}" class="nav-link">
-        <i class="nav-icon fas fa-home"></i>
+        <i class="nav-icon fas fa-user-shield"></i>
         <p>Privacy Policy</p>
     </a>
 </li>
@@ -111,7 +114,7 @@
 {{-- Terms and Condition --}}
 <li class="nav-item">
     <a href="{{route('admin.terms.index')}}" class="nav-link">
-        <i class="nav-icon fas fa-home"></i>
+        <i class="nav-icon fas fa-gavel"></i>
         <p>Terms and Condition</p>
     </a>
 </li>
@@ -119,7 +122,7 @@
 {{-- Gallery  --}}
 <li class="nav-item">
     <a href="{{route('admin.gallery.index')}}" class="nav-link">
-        <i class="nav-icon fas fa-home"></i>
+        <i class="nav-icon fas fa-photo-video"></i>
         <p>Gallery</p>
     </a>
 </li>
