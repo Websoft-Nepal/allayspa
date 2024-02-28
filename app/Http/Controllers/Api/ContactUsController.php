@@ -11,6 +11,11 @@ class ContactUsController extends BaseController
 {
     public function store(Request $request){
         $validator = Validator::make($request->all(),[
+            'firstname'=>'required',
+            'lastname'=>'required',
+            'email'=>'required|email',
+            'phone'=>'required',
+            'message'=>'required|string',
 
         ]);
         if($validator->fails()){
