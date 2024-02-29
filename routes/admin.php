@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\CounterController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\PrivacyController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -84,5 +85,11 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
         Route::get('edit/{id}',[BlogController::class,'edit'])->name('edit');
         Route::put('update/{id}',[BlogController::class,'update'])->name('update');
         Route::delete('delete/{id}',[BlogController::class,'destroy'])->name('destroy');
+    });
+
+    // Counter
+    Route::prefix('counter')->name('counter.')->group(function (){
+        Route::get('/',[CounterController::class,'index'])->name('index');
+        Route::put('update/{id}',[CounterController::class,'update'])->name('update');
     });
 });

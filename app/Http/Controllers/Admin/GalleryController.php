@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Admin\BaseController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Gallery;
+use Illuminate\Support\Facades\URL;
 
-class GalleryController extends Controller
+class GalleryController extends BaseController
 {
     public function index()
     {
@@ -16,6 +17,7 @@ class GalleryController extends Controller
     }
     public function store(Request $request)
     {
+        dd(config('APP_NAME'));
         $request->validate([
             'image' => 'required|image|max:2048'
         ]);
@@ -23,9 +25,10 @@ class GalleryController extends Controller
         if ($request->hasFile('image')) {
             // Get the file from the request
             $image = $request->file('image');
-
+            dd(config('APP_IP'));
             // Generate a unique filename for the image
             $filename = uniqid('image_') . '.' . $image->getClientOriginalExtension();
+            $filename = $this->url . '/gallery/' . uniqid('image_') . '.' . $image->getClientOriginalExtension();
 
             // Store the image in the 'uploads/gallery' directory within the public folder
             $image->move(('uploads/gallery'), $filename);

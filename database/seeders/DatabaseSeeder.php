@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             SocialMediaSeeder::class,
             ContactSeeder::class,
             AboutUsSeeder::class,
+            CounterSeeder::class,
         ]);
     }
 }

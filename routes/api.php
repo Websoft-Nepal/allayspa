@@ -3,6 +3,8 @@
 use App\Http\Controllers\Api\AboutUsController;
 use App\Http\Controllers\Api\BlogController;
 use App\Http\Controllers\Api\ContactController;
+use App\Http\Controllers\Api\ContactUsController;
+use App\Http\Controllers\Api\CounterController;
 use App\Http\Controllers\Api\GalleryController;
 use App\Http\Controllers\Api\PrivacyController;
 use Illuminate\Http\Request;
@@ -34,3 +36,5 @@ Route::get("/privacy",[PrivacyController::class,'index']);
 Route::get('/contact',[ContactController::class,'index']);
 Route::get('social-media',[SocialMediaController::class,'index']);
 Route::get('/terms-condition',[TermsConditionController::class,'index']);
+Route::post('/contactus',[ContactUsController::class,'store']);
+Route::get('/counter',[CounterController::class,'index']);
