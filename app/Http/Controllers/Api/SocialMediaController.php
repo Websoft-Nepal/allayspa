@@ -10,7 +10,7 @@ class SocialMediaController extends BaseController
 {
     public function index(){
         $data = SocialMedia::first();
-        $data = optional($data);
+        $data = $data ? $data : NULL;
         return $this->sendResponse($data,'Social Media fetched successfully');
     }
 }

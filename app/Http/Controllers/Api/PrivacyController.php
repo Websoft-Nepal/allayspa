@@ -10,8 +10,8 @@ class PrivacyController extends BaseController
 {
     public function index(){
         $data = Privacy::first();
-        $data = optional($data);
-        // dd($data);
+        $data = $data ? $data : NULL;
+
         return $this->sendResponse($data,'Privacy fetched successfully');
     }
 }

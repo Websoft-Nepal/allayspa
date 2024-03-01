@@ -10,7 +10,7 @@ class AboutUsController extends BaseController
 {
     public function index(){
         $data = AboutUs::first();
-        $data = optional($data);
+        $data = $data ? $data : NULL;
         return $this->sendResponse($data,'AboutUs data fetched successfully.');
     }
 }

@@ -10,7 +10,7 @@ class ContactController extends BaseController
 {
     public function index(){
         $data = Contact::first();
-        $data = optional($data);
+        $data = $data ? $data : NULL;
         return $this->sendResponse($data,'Contact data fetch successfully');
     }
 }

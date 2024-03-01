@@ -10,7 +10,10 @@ class TermsConditionController extends BaseController
 {
     public function index(){
         $data = TermsCondition::first();
-        $data = optional($data);
+        // $data = optional($data);
+
+        $data = $data ? $data : NULL;
+
         return $this->sendResponse($data,'Terms and condition data fetched.');
     }
 }
