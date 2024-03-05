@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 class BookingController extends Controller
 {
     public function index(){
-        $bookings = Booking::paginate(10);
+        $bookings = Booking::latest()->paginate(10);
         return view('pages.booking.index',compact('bookings'));
     }
-    public function view($id){
+    public function view(string $id){
         $booking = Booking::findOrFail($id);
         return view('pages.booking.view',compact('booking'));
     }

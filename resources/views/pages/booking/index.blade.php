@@ -38,7 +38,7 @@
                         <td>
                             <a name="" id="" class="btn btn-sm btn-success" href="{{route('admin.booking.view',$booking->id)}}"
                                 role="button">View</a>
-                            <form action="{{ route('admin.blog.destroy', $booking->id) }}"
+                            <form action="{{ route('admin.booking.destroy', $booking->id) }}"
                                 onsubmit="return(confirm('Are you sure?'))" class="d-inline-block" method="post">
                                 @method('DELETE')
                                 @csrf
