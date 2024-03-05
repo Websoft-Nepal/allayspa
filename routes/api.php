@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AboutUsController;
 use App\Http\Controllers\Api\BlogController;
+use App\Http\Controllers\Api\BookingController;
 use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\ContactUsController;
 use App\Http\Controllers\Api\CounterController;
@@ -38,3 +39,5 @@ Route::get('social-media',[SocialMediaController::class,'index']);
 Route::get('/terms-condition',[TermsConditionController::class,'index']);
 Route::post('/contactus',[ContactUsController::class,'store']);
 Route::get('/counter',[CounterController::class,'index']);
+
+Route::post('booking',[BookingController::class,'store']);

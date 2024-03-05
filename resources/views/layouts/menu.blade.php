@@ -67,6 +67,39 @@
         </li>
     </ul>
 </li>
+
+{{-- Booking --}}
+<li class="nav-item">
+    <a href="{{route("admin.booking.index")}}" class="nav-link">
+        <i class="nav-icon fas fa-users"></i>
+        <p>Booking</p>
+    </a>
+</li>
+
+{{-- Privacy Policy --}}
+<li class="nav-item">
+    <a href="{{route('admin.privacy.index')}}" class="nav-link">
+        <i class="nav-icon fas fa-user-shield"></i>
+        <p>Privacy Policy</p>
+    </a>
+</li>
+
+{{-- Terms and Condition --}}
+<li class="nav-item">
+    <a href="{{route('admin.terms.index')}}" class="nav-link">
+        <i class="nav-icon fas fa-gavel"></i>
+        <p>Terms and Condition</p>
+    </a>
+</li>
+
+{{-- Gallery  --}}
+<li class="nav-item">
+    <a href="{{route('admin.gallery.index')}}" class="nav-link">
+        <i class="nav-icon fas fa-photo-video"></i>
+        <p>Gallery</p>
+    </a>
+</li>
+
 <li class="nav-item menu-close">
     <a class="nav-link " style="cursor: pointer;">
         <i class="nav-icon fas fa-users"></i>
@@ -101,28 +134,4 @@
             </a>
         </li>
     </ul>
-</li>
-
-{{-- Privacy Policy --}}
-<li class="nav-item">
-    <a href="{{route('admin.privacy.index')}}" class="nav-link">
-        <i class="nav-icon fas fa-user-shield"></i>
-        <p>Privacy Policy</p>
-    </a>
-</li>
-
-{{-- Terms and Condition --}}
-<li class="nav-item">
-    <a href="{{route('admin.terms.index')}}" class="nav-link">
-        <i class="nav-icon fas fa-gavel"></i>
-        <p>Terms and Condition</p>
-    </a>
-</li>
-
-{{-- Gallery  --}}
-<li class="nav-item">
-    <a href="{{route('admin.gallery.index')}}" class="nav-link">
-        <i class="nav-icon fas fa-photo-video"></i>
-        <p>Gallery</p>
-    </a>
 </li>

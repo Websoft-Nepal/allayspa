@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\CounterController;
 use App\Http\Controllers\Admin\GalleryController;
@@ -91,5 +92,12 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::prefix('counter')->name('counter.')->group(function (){
         Route::get('/',[CounterController::class,'index'])->name('index');
         Route::put('update/{id}',[CounterController::class,'update'])->name('update');
+    });
+
+    // Booking
+    Route::prefix('booking')->name('booking.')->group(function (){
+        Route::get('/',[BookingController::class,'index'])->name('index');
+        Route::get('view/{id}',[BookingController::class,'view'])->name('view');
+        Route::delete('delete/{id}',[BookingController::class,'destroy'])->name('destroy');
     });
 });
