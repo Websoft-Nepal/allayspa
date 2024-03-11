@@ -11,6 +11,8 @@ use Illuminate\Validation\Rule;
 class BaseController extends Controller
 {
 
+    protected $url = "http://192.168.1.95:8000/uploads";
+
     protected function slugValidate(string $tableName, $ignoreId = null): string
     {
         $uniqueRule = Rule::unique($tableName);
