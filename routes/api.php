@@ -33,6 +33,7 @@ Route::get('/services-categories', [ServiceController::class, 'index']);
 Route::get('/gallery',[GalleryController::class,'index']);
 Route::get('/aboutus',[AboutUsController::class,'index']);
 Route::get('/blog',[BlogController::class,'index']);
+Route::get('/blog/{slug}',[BlogController::class,'show']);
 Route::get("/privacy",[PrivacyController::class,'index']);
 Route::get('/contact',[ContactController::class,'index']);
 Route::get('social-media',[SocialMediaController::class,'index']);
